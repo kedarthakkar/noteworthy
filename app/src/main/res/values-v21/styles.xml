@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-<resources>
-
-    <style name="AppTheme.NoActionBar">
-        <item name="windowActionBar">false</item>
-        <item name="windowNoTitle">true</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-    </style>
-</resources>
-=======
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
@@ -33,4 +22,3 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 </resources>
->>>>>>> 503a3532e454711cf5111d94d6ca602b9d44a5b6
