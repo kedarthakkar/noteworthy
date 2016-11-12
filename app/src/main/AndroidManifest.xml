@@ -17,6 +17,15 @@
         </activity>
 
         <uses-permission android:name="android.permission.CAMERA" />
+
+        <activity android:name=".NewSongActivity" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
