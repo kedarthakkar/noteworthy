@@ -15,6 +15,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+<<<<<<< HEAD
         <activity
             android:name=".DetailActivity"
             android:label="@string/title_activity_detail"
@@ -22,6 +23,18 @@
         <activity
             android:name=".TabbedActivity"
             android:label="@string/title_activity_tabbed"
+=======
+
+        <uses-permission android:name="android.permission.CAMERA" />
+
+        <activity android:name=".NewSongActivity" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings" />
+        <activity
+            android:name=".Main2Activity"
+            android:label="@string/title_activity_main2"
+>>>>>>> 503a3532e454711cf5111d94d6ca602b9d44a5b6
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

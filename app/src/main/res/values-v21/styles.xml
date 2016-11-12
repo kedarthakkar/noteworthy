@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <resources>
 
     <style name="AppTheme.NoActionBar">
@@ -7,3 +8,29 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 </resources>
+=======
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">#FF212121</item>
+        <item name="colorPrimaryDark">#FF000000</item>
+        <item name="colorAccent">@android:color/holo_red_light</item>
+        <item name="android:colorBackground">@color/cardview_dark_background</item>
+        <item name="android:statusBarColor">?android:attr/colorPrimary</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorPrimaryInverse">@android:color/black</item>
+        <item name="android:textColorSecondary">#B3FFFFFF</item>
+        <item name="android:textColorSecondaryInverse">#8A000000</item>
+        <item name="android:navigationBarColor">#222222</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+</resources>
+>>>>>>> 503a3532e454711cf5111d94d6ca602b9d44a5b6
