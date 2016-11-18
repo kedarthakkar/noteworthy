@@ -1,7 +1,6 @@
 package android.mdb.noteworthy;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.mdb.noteworthy.fragments.SongListFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -18,7 +17,7 @@ import android.view.ViewGroup;
 
 import android.widget.TextView;
 
-public class Main2Activity extends AppCompatActivity {
+public class TabbedActivity extends AppCompatActivity implements SongListFragment.OnFragmentInteractionListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -38,7 +37,7 @@ public class Main2Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_tabbed);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -51,14 +50,14 @@ public class Main2Activity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /**FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
     }
 
@@ -102,23 +101,34 @@ public class Main2Activity extends AppCompatActivity {
          * Returns a new instance of this fragment for the given section
          * number.
          */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
+        public static Fragment newInstance(int sectionNumber) {
+
+            Fragment fragment = null;
+            if (sectionNumber == 1) {
+                fragment = new PlaceholderFragment();
+                Bundle args = new Bundle();
+                args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+                fragment.setArguments(args);
+            }
+            else if (sectionNumber == 2) {
+                fragment = new SongListFragment();
+            }
             return fragment;
         }
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
+            int sectionNumber = getArguments().getInt(ARG_SECTION_NUMBER);
             View rootView = inflater.inflate(R.layout.fragment_main2, container, false);
             TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            textView.setText(getString(R.string.section_format, sectionNumber));
             return rootView;
         }
     }
+
+    @Override
+    public void onClick(String peepee) {System.out.println(peepee);}
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to
@@ -140,17 +150,17 @@ public class Main2Activity extends AppCompatActivity {
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 3;
+            return 2;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
-                case 0:
+                case 0: //Camera
                     return "SECTION 1";
-                case 1:
+                case 1: //Music Player
                     return "SECTION 2";
-                case 2:
+                case 2: //idek
                     return "SECTION 3";
             }
             return null;

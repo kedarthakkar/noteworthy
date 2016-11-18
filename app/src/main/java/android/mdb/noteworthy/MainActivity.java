@@ -1,12 +1,9 @@
 package android.mdb.noteworthy;
 
-import android.content.Intent;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 
 import java.util.ArrayList;
 
@@ -17,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.fragment_song_list);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.song_recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

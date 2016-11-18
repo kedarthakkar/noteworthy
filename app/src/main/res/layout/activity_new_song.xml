@@ -8,45 +8,51 @@
     tools:context="android.mdb.noteworthy.NewSongActivity">
 
     <EditText
+        android:textColorHint="#DDDDDD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name of Piece"
         android:ems="10"
         android:id="@+id/editText"
-        style="@style/Widget.AppCompat.Light.AutoCompleteTextView"
+        style="@style/Widget.AppCompat.EditText"
         android:layout_marginStart="16dp"
         tools:layout_constraintLeft_creator="1"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="16dp"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:hint="Name of Piece" />
 
     <EditText
+        android:textColorHint="#DDDDDD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:text="Name of Composer"
         android:ems="10"
         android:id="@+id/editText2"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@+id/editText"
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="16dp" />
+        android:layout_marginLeft="16dp"
+        android:hint="Name of Composer"
+        style="@style/Widget.AppCompat.EditText" />
 
     <EditText
+        android:textColorHint="#DDDDDD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
         android:id="@+id/editText4"
-        android:text="Tempo"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@+id/editText2"
         android:layout_marginStart="16dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="16dp" />
+        android:layout_marginLeft="16dp"
+        android:hint="Tempo"
+        style="@style/Widget.AppCompat.EditText"
+        android:selectAllOnFocus="false" />
 
     <Button
         android:text="Button"
