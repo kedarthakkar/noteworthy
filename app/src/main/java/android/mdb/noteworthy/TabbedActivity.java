@@ -1,5 +1,6 @@
 package android.mdb.noteworthy;
 
+import android.mdb.noteworthy.fragments.CameraFragment;
 import android.mdb.noteworthy.fragments.SongListFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -9,13 +10,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-
-import android.widget.TextView;
 
 public class TabbedActivity extends AppCompatActivity implements SongListFragment.OnFragmentInteractionListener {
 
@@ -33,6 +33,7 @@ public class TabbedActivity extends AppCompatActivity implements SongListFragmen
      * The {@link ViewPager} that will host the section contents.
      */
     private ViewPager mViewPager;
+    private int pageCount = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +44,15 @@ public class TabbedActivity extends AppCompatActivity implements SongListFragmen
         setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
+
+        int p = getIntent().getIntExtra("page", 0);
+        if (p != 0) {pageCount = p;}
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+        mViewPager.setCurrentItem(p);
 
 
         /**FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -84,49 +89,22 @@ public class TabbedActivity extends AppCompatActivity implements SongListFragmen
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        public PlaceholderFragment() {
+    private static Fragment newInstance(int sectionNumber) {
+        Fragment fragment = null;
+        if (sectionNumber == 1) {
+            fragment = new CameraFragment();
         }
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static Fragment newInstance(int sectionNumber) {
-
-            Fragment fragment = null;
-            if (sectionNumber == 1) {
-                fragment = new PlaceholderFragment();
-                Bundle args = new Bundle();
-                args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-                fragment.setArguments(args);
-            }
-            else if (sectionNumber == 2) {
-                fragment = new SongListFragment();
-            }
-            return fragment;
+        else if (sectionNumber == 2) {
+            fragment = new SongListFragment();
         }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            int sectionNumber = getArguments().getInt(ARG_SECTION_NUMBER);
-            View rootView = inflater.inflate(R.layout.fragment_main2, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, sectionNumber));
-            return rootView;
+        else if (sectionNumber == 3) {
+            //TODO pls no why there 2 cameras yo
+            fragment = new CameraFragment();
         }
+        return fragment;
     }
 
+    //TODO yeah no
     @Override
     public void onClick(String peepee) {System.out.println(peepee);}
 
@@ -143,14 +121,14 @@ public class TabbedActivity extends AppCompatActivity implements SongListFragmen
         @Override
         public Fragment getItem(int position) {
             // getItem is called to instantiate the fragment for the given page.
-            // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            // Return a CameraFragment (defined as a static inner class below).
+            return newInstance(position + 1);
         }
 
         @Override
         public int getCount() {
             // Show 3 total pages.
-            return 2;
+            return pageCount;
         }
 
         @Override

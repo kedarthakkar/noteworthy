@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="android.mdb.noteworthy.TabbedActivity$PlaceholderFragment"
+    tools:context="android.mdb.noteworthy.TabbedActivity$CameraFragment"
     android:id="@+id/screen1">
 
     <FrameLayout
@@ -43,9 +43,9 @@
         android:layout_width="69dp"
         android:layout_height="69dp"
         app:srcCompat="@drawable/custom_button"
-        android:id="@+id/imageButton"
+        android:id="@+id/camera_button"
         app:layout_constraintBottom_toBottomOf="@+id/camera_preview"
-        style="@android:style/Widget.Holo.Light.ImageButton"
+        style="@style/Widget.AppCompat.ImageButton"
         app:layout_constraintRight_toRightOf="@+id/camera_preview"
         app:layout_constraintLeft_toLeftOf="@+id/camera_preview"
         android:background="@color/cardview_shadow_end_color"
